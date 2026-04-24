@@ -243,3 +243,41 @@ footer a:hover { color: var(--accent); }
 .footer-col ul li { margin-bottom: 0.4rem; }
 .footer-col ul li a { font-size: 0.8rem; }
 .footer-bottom { border-top: 1px solid var(--border); padding-top: 1.5rem; }
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    /* 1. Make the container padding smaller so content doesn't feel squished */
+    .container {
+        padding: 0 15px;
+    }
+
+    /* 2. Force the 3-column grid into 1 column on phones */
+    .cards-grid {
+        display: grid;
+        grid-template-columns: 1fr !important; /* Forces one card per row */
+        gap: 20px;
+    }
+
+    /* 3. Stack the stats (300+ Tools, 50% Commission) vertically */
+    .hero div { 
+        flex-direction: column !important;
+        align-items: center;
+    }
+
+    .stat-card {
+        width: 100%;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    /* 4. Adjust the Hero text size so it doesn't wrap weirdly */
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    /* 5. Make images or banners responsive */
+    .ad-banner-horizontal {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+}
