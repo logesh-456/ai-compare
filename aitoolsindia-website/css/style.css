@@ -394,3 +394,199 @@ html, body {
   overflow-x: hidden;
   width: 100%;
 }
+/* ============================================================
+   PASTE THIS AT THE VERY BOTTOM OF YOUR css/style.css
+   ============================================================ */
+
+/* Global overflow fix — prevents ANY element cutting off screen */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* ============================================================
+   TABLET (max 900px)
+   ============================================================ */
+@media (max-width: 900px) {
+  .cards-grid        { grid-template-columns: repeat(2, 1fr); }
+  .tools-grid        { grid-template-columns: repeat(2, 1fr); }
+  .two-col           { grid-template-columns: 1fr; }
+  .footer-top        { grid-template-columns: repeat(2, 1fr); }
+  .hero              { gap: 1.5rem; padding: 3rem 1.5rem 2rem; }
+  .hero h1           { font-size: 2.2rem; }
+}
+
+/* ============================================================
+   MOBILE (max 640px)
+   ============================================================ */
+@media (max-width: 640px) {
+
+  /* --- CONTAINERS --- */
+  .container,
+  .page-wrap,
+  .page-header { padding-left: 16px; padding-right: 16px; }
+
+  /* --- NAV (fix from earlier — show links, scrollable) --- */
+  nav {
+    height: auto;
+    flex-wrap: wrap;
+    padding: 10px 16px;
+    gap: 8px;
+  }
+  .nav-links {
+    display: flex !important; /* override any previous hide */
+    gap: 0.8rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    width: 100%;
+    padding-bottom: 4px;
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a {
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+  .nav-cta {
+    font-size: 0.75rem;
+    padding: 6px 14px;
+    white-space: nowrap;
+  }
+
+  /* --- HERO --- */
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 2rem 16px 1.5rem;
+    gap: 1.5rem;
+  }
+  .hero h1           { font-size: 1.9rem; letter-spacing: -1px; }
+  .hero p            { font-size: 0.92rem; }
+  .hero-btns         { flex-direction: column; }
+  .btn-primary,
+  .btn-outline       { width: 100%; text-align: center; }
+  .stat-card         { width: 100%; margin-bottom: 12px; }
+
+  /* --- ALL GRIDS → SINGLE COLUMN --- */
+  .cards-grid,
+  .cards-grid-2,
+  .tools-grid        { grid-template-columns: 1fr !important; gap: 16px; }
+
+  /* --- TWO COLUMN LAYOUT --- */
+  .two-col           { grid-template-columns: 1fr; gap: 1.5rem; }
+
+  /* --- COMPARE PAGE FIX (Image 1) ---
+       Quick Compare row: dropdowns + button overflow fix */
+  .compare-form,
+  .quick-compare,
+  .compare-row {
+    display: flex;
+    flex-wrap: wrap;        /* Wrap button to next line */
+    gap: 10px;
+    width: 100%;
+  }
+  .compare-form select,
+  .quick-compare select,
+  .compare-row select {
+    flex: 1;
+    min-width: 0;           /* Prevent select from overflowing */
+    width: 100%;
+    font-size: 0.85rem;
+  }
+  .compare-form button,
+  .quick-compare button,
+  .compare-row button,
+  .compare-btn {
+    width: 100%;            /* Full width button on its own line */
+    margin-top: 4px;
+  }
+  /* VS label between dropdowns */
+  .vs-label {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* --- TOOL CARDS (Image 2) --- */
+  .tool-card         { padding: 1rem; }
+  .tool-footer       { flex-wrap: wrap; gap: 8px; }
+  .tool-btn          { width: 100%; }
+
+  /* Filter buttons row — make them wrap */
+  .filter-row,
+  .filter-tabs,
+  .category-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .filter-btn,
+  .filter-tab,
+  .category-tab {
+    font-size: 0.78rem;
+    padding: 5px 12px;
+    white-space: nowrap;
+  }
+
+  /* --- COMPARE TABLE --- */
+  .compare-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    margin: 1.5rem 0;
+    width: 100%;
+  }
+  .compare-table {
+    margin: 0;
+    font-size: 0.78rem;
+    min-width: 460px;       /* Table scrolls, doesn't squish */
+  }
+
+  /* --- ARTICLE --- */
+  .article-hero      { height: 160px; font-size: 3rem; border-radius: 14px; }
+  .article-title     { font-size: 1.4rem; }
+  .article-meta      { flex-wrap: wrap; gap: 6px; }
+  .pros-cons         { grid-template-columns: 1fr; }
+
+  /* --- NEWSLETTER --- */
+  .newsletter        { padding: 1.5rem 1rem; border-radius: 14px; }
+  .newsletter h2     { font-size: 1.3rem; }
+  .email-form        { flex-direction: column; }
+  .email-form input,
+  .email-form button { width: 100%; border-radius: 10px; }
+
+  /* --- PAGE HEADER --- */
+  .page-header h1    { font-size: 1.6rem; }
+
+  /* --- FOOTER --- */
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    padding: 1.2rem 16px 0;
+  }
+
+  /* --- AD BANNERS --- */
+  .ad-banner         { max-width: 100%; }
+  .ad-banner.horizontal,
+  .ad-banner.leaderboard { height: 60px; font-size: 0.68rem; }
+  .ad-banner.rectangle   { width: 100%; height: 100px; }
+
+  /* --- SECTION HEADERS --- */
+  .section-title     { font-size: 1.2rem; }
+  .page-header h1    { font-size: 1.6rem; }
+}
+
+/* ============================================================
+   VERY SMALL PHONES (max 380px)
+   ============================================================ */
+@media (max-width: 380px) {
+  .hero h1           { font-size: 1.6rem; }
+  .footer-top        { grid-template-columns: 1fr; }
+  .card-img          { height: 140px; }
+  .nav-cta           { display: none; } /* Hide CTA on tiny screens */
+}
